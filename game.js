@@ -139,31 +139,31 @@ function create ()
 }
 
 
-
-
+// Game loop
 function update ()
 {
-
+    //  Get input form keyboard
     cursors = this.input.keyboard.createCursorKeys();
     if (cursors.left.isDown)
     {
+        // Move left
         player.setVelocityX(-160);
-
         player.anims.play('left', true);
     }
     else if (cursors.right.isDown)
     {
+        // Move right
         player.setVelocityX(160);
-
         player.anims.play('right', true);
     }
     else
     {
+        // Stand still
         player.setVelocityX(0);
-
         player.anims.play('turn');
     }
 
+    // Jump only if dude is on the platform
     if (cursors.up.isDown && player.body.touching.down)
     {
         player.setVelocityY(-330);
