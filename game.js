@@ -2,7 +2,7 @@ var config = {
     type: Phaser.AUTO,
     width: 800,
     height: 600,
-    // Physics is used to add propterties like static, dynamic, collision and bounce, gravity etc
+    // Physics is used to add properties like static, dynamic, collision and bounce, gravity etc
     physics: {
         default: 'arcade',
         arcade: {
@@ -12,7 +12,7 @@ var config = {
     },
     scene: {
         preload: preload, // Load assets like background, characters etc. Runs single time
-        create: create, // Create the game evironment - Define movement of characters, physics properties etc. Runs single time
+        create: create, // Create the game environment - Define movement of characters, physics properties etc. Runs single time
         update: update // This is the game loop, Repeats execution, Game logic is written here
     }
 };
@@ -51,7 +51,7 @@ function create ()
     platforms.create(50, 250, 'ground');
     platforms.create(750, 220, 'ground');
 
-    // Add movig character
+    // Add moving character
     player = this.physics.add.sprite(100, 450, 'dude');
     player.setBounce(0.2);
     player.setCollideWorldBounds(true);
@@ -64,7 +64,7 @@ function create ()
         frameRate: 10,
         repeat: -1
     });
-    // Animation of moving character - no movment
+    // Animation of moving character - no movement
     this.anims.create({
         key: 'turn',
         // Frames inside sprite - 4
@@ -95,7 +95,7 @@ function create ()
     //Stars collide with platform
     this.physics.add.collider(stars, platforms);
 
-    // Fucntion "collectStar" is called when dude meets star
+    // Function "collectStar" is called when dude meets star
     this.physics.add.overlap(player, stars, collectStar, null, this);
     
     // Display score
@@ -142,7 +142,7 @@ function create ()
 // Game loop
 function update ()
 {
-    //  Get input form keyboard
+    //  Get input from keyboard
     cursors = this.input.keyboard.createCursorKeys();
     if (cursors.left.isDown)
     {
